@@ -19,8 +19,10 @@ def image_results(test_image):
     testing=np.expand_dims(testing,axis=0)
     cnn=model()
     result=cnn.predict(testing)
-    Categories=['Fire','Smoke']
-    prediction = f"Prediction: {Categories[int(result[0][0])]} (Fire) | {Categories[int(result[0][1])]} (Smoke)"
+    threshold = 0.5
+    predicted_class = (result[0][0] > threshold).astype(int)
+    Categories = ['Fire', 'Smoke']
+    prediction = f"Prediction: {Categories[predicted_class]} ({Categories[1 - predicted_class]})"
     return prediction
 
 #-------TO SHOW THE GRAPH OF ALL THE ACTIVATION FUNCTION
