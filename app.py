@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.preprocessing import image
 import matplotlib.pyplot as plt
 import os
 
@@ -12,18 +11,6 @@ def model():
     cnn=tf.keras.models.load_model(os.getcwd()+"/fire_and_smoke")
     return cnn
 
-def predict_image(model, image_path, target_size=(64, 64), threshold=0.5):
-    testing = image.load_img(image_path, target_size=target_size)
-    testing = image.img_to_array(testing)
-    testing = testing / 255
-    testing = np.expand_dims(testing, axis=0)
-    result = model.predict(testing)
-
-    predicted_class = (result[0][0] > threshold).astype(int)
-
-    return predicted_class
-
-
 #------TO TEST THE IMAGE IF IT IS OF FIRE OR OF SMOKE
 def image_results(test_image):
     testing=tf.keras.preprocessing.image.load_img(test_image,target_size=(64,64))
@@ -31,11 +18,9 @@ def image_results(test_image):
     testing=testing/255
     testing=np.expand_dims(testing,axis=0)
     cnn=model()
-    prediction_class = predict_image(cnn, test_image)
-    Categories = ['Fire', 'Smoke']
-    confidence = cnn.predict(np.expand_dims(testing, axis=0))[0][0]
-    prediction_category = Categories[prediction_class]
-    return prediction_category, confidence
+    result=cnn.predict(testing)
+    Categories=['Fire','Smoke']
+    return Categories[int(result[0][0])]
 
 #-------TO SHOW THE GRAPH OF ALL THE ACTIVATION FUNCTION
 def graph():
@@ -112,8 +97,8 @@ with st.container():
         file=st.file_uploader("Upload image of fire or smoke to test out our model",type=["jpg","png"])
 
     with image_column:
-        if file is not None:
-            prediction, confidence = image_results(file)
+        if file != None:
+            prediction=image_results(file)
             st.image(file,use_column_width=True)
-            st.success(f"Prediction: {prediction} (Confidence: {confidence:.2f})")
+            st.success(prediction)
 
