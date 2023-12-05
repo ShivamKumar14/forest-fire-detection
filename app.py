@@ -8,7 +8,7 @@ import os
 #-------TO IMPORT THE MODEL THAT IS TRAINED 
 @st.cache(allow_output_mutation=True) #-----THIS WILL STORE THE MODEL IN CACHE MEMORY
 def model():
-    cnn=tf.keras.models.load_model(os.getcwd()+"/fire_and_smoke.h5")
+    cnn=tf.keras.models.load_model(os.getcwd()+"/fire_and_smoke")
     return cnn
 
 #------TO TEST THE IMAGE IF IT IS OF FIRE OR OF SMOKE
