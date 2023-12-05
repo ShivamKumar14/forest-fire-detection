@@ -20,7 +20,9 @@ def image_results(test_image):
     cnn=model()
     result=cnn.predict(testing)
     Categories=['Fire','Smoke']
-    return Categories[int(result[0][0])]
+    prediction_category = Categories[int(result[0][0])]
+    confidence = result[0][0] if prediction_category == 'Fire' else 1 - result[0][0]
+    return prediction_category, confidence
 
 #-------TO SHOW THE GRAPH OF ALL THE ACTIVATION FUNCTION
 def graph():
@@ -98,7 +100,7 @@ with st.container():
 
     with image_column:
         if file != None:
-            prediction=image_results(file)
+            prediction, confidence =image_results(file)
             st.image(file,use_column_width=True)
-            st.success(prediction)
+            st.success(f"Prediction: {prediction} (Confidence: {confidence:.2f})")
 
