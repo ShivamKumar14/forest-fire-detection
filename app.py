@@ -20,7 +20,8 @@ def image_results(test_image):
     cnn=model()
     result=cnn.predict(testing)
     Categories=['Fire','Smoke']
-    return Categories[int(result[0][0])]
+    prediction = f"Prediction: {Categories[int(result[0][0])]} (Fire) | {Categories[int(result[0][1])]} (Smoke)"
+    return prediction
 
 #-------TO SHOW THE GRAPH OF ALL THE ACTIVATION FUNCTION
 def graph():
@@ -97,7 +98,7 @@ with st.container():
         file=st.file_uploader("Upload image of fire or smoke to test out our model",type=["jpg","png"])
 
     with image_column:
-        if file != None:
+        if file is not None:
             prediction=image_results(file)
             st.image(file,use_column_width=True)
             st.success(prediction)
