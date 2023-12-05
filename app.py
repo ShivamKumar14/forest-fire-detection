@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import os
 
 #-------TO IMPORT THE MODEL THAT IS TRAINED 
-@st.cache(allow_output_mutation=True) #-----THIS WILL STORE THE MODEL IN CACHE MEMORY
+@st.cache_data(allow_output_mutation=True) #-----THIS WILL STORE THE MODEL IN CACHE MEMORY
 def model():
     cnn=tf.keras.models.load_model(os.getcwd()+"/fire_and_smoke")
     return cnn
