@@ -12,6 +12,18 @@ def model():
     cnn=tf.keras.models.load_model(os.getcwd()+"/fire_and_smoke")
     return cnn
 
+def predict_image(model, image_path, target_size=(64, 64), threshold=0.5):
+    testing = image.load_img(image_path, target_size=target_size)
+    testing = image.img_to_array(testing)
+    testing = testing / 255
+    testing = np.expand_dims(testing, axis=0)
+    result = model.predict(testing)
+
+    predicted_class = (result[0][0] > threshold).astype(int)
+
+    return predicted_class
+
+
 #------TO TEST THE IMAGE IF IT IS OF FIRE OR OF SMOKE
 def image_results(test_image):
     testing=tf.keras.preprocessing.image.load_img(test_image,target_size=(64,64))
