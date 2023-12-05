@@ -22,7 +22,7 @@ def image_results(test_image):
     threshold = 0.5
     predicted_class = (result[0][0] > threshold).astype(int)
     Categories = ['Fire', 'Smoke']
-    prediction = f"Prediction: {Categories[predicted_class]} ({Categories[1 - predicted_class]})"
+    prediction = f"Prediction: {Categories[predicted_class]}"
     return prediction
 
 #-------TO SHOW THE GRAPH OF ALL THE ACTIVATION FUNCTION
