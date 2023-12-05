@@ -47,9 +47,9 @@ with st.container():
     st.title("About the team and project")
     st.subheader("Team")
     st.write("""
-        1. [Divij Chaudhari](https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAAC4vllkBKx8F0GrG7jtRw_gOUOgWy72pPdQ&keywords=divij%20chaudhari&origin=RICH_QUERY_SUGGESTION&position=0&searchId=60a6a04e-fd3e-4a41-9e32-53eb839e12d8&sid=pBu)
-        2. [Devanshu Agrawal]()
-        3. [Kushagra Joshi](https://www.linkedin.com/in/kushagra-joshi-096629190/)
+        1. [Shivam Kumar](https://www.linkedin.com/in/shivamkumar14/)
+        2. [Prince Banger]()
+        3. [Mohd Aman]()
     """)
 
     st.subheader("Our project")
