@@ -47,6 +47,17 @@ st.set_page_config(page_title="forest_fire_detection", layout="wide")
 #----header section
 
 with st.container():
+    st.markdown(
+        """
+        <style>
+        .title {
+            text-align: center;
+            margin-top: -20px;  /* Adjust this value to move the title upward */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
     st.title("FOREST FIRE DETECTOR")
     st.subheader("Team")
     st.write("""
