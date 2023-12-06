@@ -47,7 +47,7 @@ st.set_page_config(page_title="forest_fire_detection", layout="wide")
 #----header section
 
 with st.container():
-    with st.container():
+    
     st.markdown(
         """
         <div style="text-align: center; margin-top: -20px;">
