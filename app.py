@@ -47,12 +47,13 @@ st.set_page_config(page_title="forest_fire_detection", layout="wide")
 #----header section
 
 with st.container():
-    st.title("About the team and project")
+    st.title("FOREST FIRE DETECTOR")
     st.subheader("Team")
     st.write("""
         1. [Shivam Kumar](https://www.linkedin.com/in/shivamkumar14/)
-        2. [Prince Banger]()
+        2. [Prince Banger](https://www.linkedin.com/in/prince-banger-44aa20224/)
         3. [Mohd Aman]()
+        4. [Devansh Prashar]()
     """)
 
     st.subheader("Our project")
