@@ -4,4 +4,5 @@ forest fires. Implemented a user-friendly interface using Streamlit for easy tes
 
  Tech Stack
 Python, TensorFlow, Keras, Streamlit, Matplotlib
+
 Cloud Platform: AWS
