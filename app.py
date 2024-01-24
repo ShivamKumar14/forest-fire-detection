@@ -57,12 +57,10 @@ with st.container():
         unsafe_allow_html=True,
     )
 
-    st.subheader("Team")
+    st.subheader("Author")
     st.write("""
         1. [Shivam Kumar](https://www.linkedin.com/in/shivamkumar14/)
-        2. [Prince Banger](https://www.linkedin.com/in/prince-banger-44aa20224/)
-        3. [Mohd Aman]()
-        4. [Devansh Prashar]()
+        
     """)
 
     st.subheader("Our project")
