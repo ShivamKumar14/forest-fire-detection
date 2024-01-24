@@ -1,2 +1,6 @@
 ### dependency
 streamlit
+tensorflow
+pandas
+numpy
+matplotlib
