@@ -6,10 +6,22 @@ import matplotlib.pyplot as plt
 import os
 
 #-------TO IMPORT THE MODEL THAT IS TRAINED 
-@st.cache(allow_output_mutation=True) #-----THIS WILL STORE THE MODEL IN CACHE MEMORY
+#@st.cache(allow_output_mutation=True) #-----THIS WILL STORE THE MODEL IN CACHE MEMORY
+#def model():
+    #cnn=tf.keras.models.load_model(os.getcwd()+"/fire_and_smoke")
+    #return cnn
+@st.cache(allow_output_mutation=True)
 def model():
-    cnn=tf.keras.models.load_model(os.getcwd()+"/fire_and_smoke")
-    return cnn
+    model_path = os.path.join(os.getcwd(), "fire_and_smoke")
+    try:
+        # Load the model from the specified directory
+        cnn = tf.keras.models.load_model(model_path)
+        return cnn
+    except Exception as e:
+        # Log any errors that arise during model loading
+        st.error(f"Error loading model: {e}")
+        return None
+
 
 #------TO TEST THE IMAGE IF IT IS OF FIRE OR OF SMOKE
 def image_results(test_image):
